@@ -1,13 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import { Layout } from '../components/Layout';
+import { Dashboard } from '../components/Dashboard';
+import { ComplaintManagement } from '../components/ComplaintManagement';
 
 const Index = () => {
+  const [currentView, setCurrentView] = useState<'dashboard' | 'complaints'>('dashboard');
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <Layout>
+      <div className="h-screen flex flex-col">
+        {/* Quick Navigation for Demo */}
+        <div className="bg-white border-b border-gray-200 p-4">
+          <div className="flex space-x-4">
+            <button
+              onClick={() => setCurrentView('dashboard')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                currentView === 'dashboard'
+                  ? 'bg-reclame-blue text-white'
+                  : 'text-medium-gray hover:text-charcoal hover:bg-gray-100'
+              }`}
+            >
+              Dashboard
+            </button>
+            <button
+              onClick={() => setCurrentView('complaints')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                currentView === 'complaints'
+                  ? 'bg-reclame-blue text-white'
+                  : 'text-medium-gray hover:text-charcoal hover:bg-gray-100'
+              }`}
+            >
+              Complaint Management
+            </button>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 overflow-hidden">
+          {currentView === 'dashboard' ? <Dashboard /> : <ComplaintManagement />}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
