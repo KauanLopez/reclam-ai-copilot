@@ -6,32 +6,32 @@ const complaints = [
   {
     id: '#2847',
     student: 'Marcus Chen',
-    title: 'Grade dispute escalation',
-    snippet: 'I am extremely frustrated with the lack of response regarding my grade appeal...',
-    tags: ['Grade', 'Legal Threat'],
+    title: 'Escalação de disputa de nota',
+    snippet: 'Estou extremamente frustrado com a falta de resposta sobre meu recurso de nota...',
+    tags: ['Nota', 'Ameaça Legal'],
     riskLevel: 'high',
-    timeAgo: '2 hours ago',
-    sentiment: { frustration: 90, anger: 65 }
+    timeAgo: 'há 2 horas',
+    sentiment: { frustração: 90, raiva: 65 }
   },
   {
     id: '#2851',
     student: 'Emma Rodriguez',
-    title: 'Financial aid suspension',
-    snippet: 'My financial aid has been suspended without proper notice and I cannot afford...',
-    tags: ['Financial Aid', 'Hardship'],
+    title: 'Suspensão de auxílio financeiro',
+    snippet: 'Meu auxílio financeiro foi suspenso sem aviso adequado e não posso pagar...',
+    tags: ['Auxílio Financeiro', 'Dificuldade'],
     riskLevel: 'high',
-    timeAgo: '4 hours ago',
-    sentiment: { frustration: 85, desperation: 70 }
+    timeAgo: 'há 4 horas',
+    sentiment: { frustração: 85, desespero: 70 }
   },
   {
     id: '#2852',
     student: 'Alex Thompson',
-    title: 'Internship coordinator unresponsive',
-    snippet: 'I have been trying to reach my internship coordinator for two weeks...',
-    tags: ['Internship', 'Communication'],
+    title: 'Coordenador de estágio não responde',
+    snippet: 'Tenho tentado contatar meu coordenador de estágio há duas semanas...',
+    tags: ['Estágio', 'Comunicação'],
     riskLevel: 'medium',
-    timeAgo: '1 hour ago',
-    sentiment: { frustration: 60, concern: 40 }
+    timeAgo: 'há 1 hora',
+    sentiment: { frustração: 60, preocupação: 40 }
   }
 ];
 
@@ -44,8 +44,8 @@ export const ComplaintManagement: React.FC = () => {
       {/* Column 1: Queue */}
       <div className="w-80 bg-white border-r border-gray-200 flex flex-col card-shadow">
         <div className="p-4 border-b border-gray-100">
-          <h2 className="text-lg font-semibold text-charcoal">New Complaints</h2>
-          <p className="text-sm text-medium-gray mt-1">8 cases requiring attention</p>
+          <h2 className="text-lg font-semibold text-charcoal">Novas Reclamações</h2>
+          <p className="text-sm text-medium-gray mt-1">8 casos precisando de atenção</p>
         </div>
         
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
@@ -91,7 +91,7 @@ export const ComplaintManagement: React.FC = () => {
               <span className={`tag ${
                 selectedComplaint.riskLevel === 'high' ? 'tag-high-risk' : 'tag-medium-risk'
               }`}>
-                {selectedComplaint.riskLevel.toUpperCase()} RISK
+                {selectedComplaint.riskLevel === 'high' ? 'ALTO RISCO' : 'MÉDIO RISCO'}
               </span>
             </div>
             <span className="text-sm text-medium-gray">{selectedComplaint.timeAgo}</span>
@@ -104,12 +104,12 @@ export const ComplaintManagement: React.FC = () => {
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
             <div className="flex items-center space-x-2 mb-3">
               <Brain className="w-5 h-5 text-reclame-blue" />
-              <h3 className="font-semibold text-charcoal">AI Analysis</h3>
+              <h3 className="font-semibold text-charcoal">Análise da IA</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <h4 className="text-sm font-medium text-charcoal mb-2">Sentiment</h4>
+                <h4 className="text-sm font-medium text-charcoal mb-2">Sentimento</h4>
                 <div className="space-y-1">
                   {Object.entries(selectedComplaint.sentiment).map(([emotion, score]) => (
                     <div key={emotion} className="flex items-center justify-between text-sm">
@@ -121,59 +121,59 @@ export const ComplaintManagement: React.FC = () => {
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-charcoal mb-2">Key Entities</h4>
+                <h4 className="text-sm font-medium text-charcoal mb-2">Entidades Chave</h4>
                 <div className="flex flex-wrap gap-1">
-                  <span className="tag">Grade Appeal</span>
-                  <span className="tag">Academic Records</span>
-                  <span className="tag">Department</span>
+                  <span className="tag">Recurso de Nota</span>
+                  <span className="tag">Registros Acadêmicos</span>
+                  <span className="tag">Departamento</span>
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium text-charcoal mb-2">Detected Intent</h4>
-                <p className="text-sm text-medium-gray">Request grade correction and formal review process</p>
+                <h4 className="text-sm font-medium text-charcoal mb-2">Intenção Detectada</h4>
+                <p className="text-sm text-medium-gray">Solicitar correção de nota e processo de revisão formal</p>
               </div>
             </div>
           </div>
 
           {/* Original Complaint */}
           <div>
-            <h3 className="font-semibold text-charcoal mb-3">Original Complaint</h3>
+            <h3 className="font-semibold text-charcoal mb-3">Reclamação Original</h3>
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-charcoal leading-relaxed">
-                Dear Ombudsman Office,
+                Cara Ouvidoria,
                 <br /><br />
-                I am extremely frustrated with the lack of response regarding my grade appeal for CHEM 301. 
-                I submitted my appeal three weeks ago with supporting documentation, but have received no 
-                acknowledgment or update. This grade is affecting my GPA and scholarship eligibility.
+                Estou extremamente frustrado com a falta de resposta sobre meu recurso de nota para QUIM 301. 
+                Enviei meu recurso há três semanas com documentação de apoio, mas não recebi nenhum 
+                reconhecimento ou atualização. Esta nota está afetando meu GPA e elegibilidade para bolsa.
                 <br /><br />
-                I have contacted Professor Martinez multiple times without response. The department secretary 
-                told me to "wait" but provided no timeline. This is unacceptable given the impact on my 
-                academic standing and financial aid.
+                Contactei o Professor Martinez várias vezes sem resposta. A secretária do departamento 
+                me disse para "aguardar" mas não forneceu cronograma. Isso é inaceitável dado o impacto na minha 
+                situação acadêmica e auxílio financeiro.
                 <br /><br />
-                If this is not resolved immediately, I will be forced to escalate this matter through legal 
-                channels. I have already consulted with an attorney about my options.
+                Se isso não for resolvido imediatamente, serei forçado a escalonar este assunto através de 
+                canais legais. Já consultei um advogado sobre minhas opções.
                 <br /><br />
-                I expect a response within 24 hours.
+                Espero uma resposta em 24 horas.
                 <br /><br />
                 Marcus Chen<br />
-                Student ID: 12345678
+                ID do Estudante: 12345678
               </p>
             </div>
           </div>
 
           {/* Interaction History */}
           <div>
-            <h3 className="font-semibold text-charcoal mb-3">Case History</h3>
+            <h3 className="font-semibold text-charcoal mb-3">Histórico do Caso</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
                 <div className="w-2 h-2 bg-reclame-blue rounded-full mt-2"></div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm font-medium text-charcoal">Case created</span>
-                    <span className="text-xs text-medium-gray">2 hours ago</span>
+                    <span className="text-sm font-medium text-charcoal">Caso criado</span>
+                    <span className="text-xs text-medium-gray">há 2 horas</span>
                   </div>
-                  <p className="text-sm text-medium-gray">Initial complaint received from student portal</p>
+                  <p className="text-sm text-medium-gray">Reclamação inicial recebida do portal do estudante</p>
                 </div>
               </div>
             </div>
@@ -187,51 +187,51 @@ export const ComplaintManagement: React.FC = () => {
         <div className="p-4 border-b border-gray-100">
           <h3 className="font-semibold text-charcoal mb-4 flex items-center">
             <User className="w-5 h-5 mr-2" />
-            AI Student Dossier
+            Dossiê IA do Estudante
           </h3>
           
           <div className="space-y-3">
             <div className="bg-gray-50 rounded-lg p-3">
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>
-                  <span className="text-medium-gray">Student ID:</span>
+                  <span className="text-medium-gray">ID Estudante:</span>
                   <p className="font-medium text-charcoal">12345678</p>
                 </div>
                 <div>
-                  <span className="text-medium-gray">Year:</span>
-                  <p className="font-medium text-charcoal">Junior</p>
+                  <span className="text-medium-gray">Ano:</span>
+                  <p className="font-medium text-charcoal">3º Ano</p>
                 </div>
                 <div>
-                  <span className="text-medium-gray">Major:</span>
-                  <p className="font-medium text-charcoal">Chemistry</p>
+                  <span className="text-medium-gray">Curso:</span>
+                  <p className="font-medium text-charcoal">Química</p>
                 </div>
                 <div>
                   <span className="text-medium-gray">GPA:</span>
-                  <p className="font-medium text-charcoal">3.42</p>
+                  <p className="font-medium text-charcoal">3,42</p>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="text-sm font-medium text-charcoal mb-2">Financial Status</h4>
+              <h4 className="text-sm font-medium text-charcoal mb-2">Situação Financeira</h4>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-success-green rounded-full"></div>
-                <span className="text-sm text-charcoal">Active Financial Aid</span>
+                <span className="text-sm text-charcoal">Auxílio Financeiro Ativo</span>
               </div>
             </div>
             
             <div>
-              <h4 className="text-sm font-medium text-charcoal mb-2">Recent Support Tickets</h4>
+              <h4 className="text-sm font-medium text-charcoal mb-2">Tickets de Suporte Recentes</h4>
               <div className="space-y-1 text-sm text-medium-gray">
-                <p>• Grade appeal CHEM 301 (3 weeks ago)</p>
-                <p>• IT support request (1 month ago)</p>
+                <p>• Recurso de nota QUIM 301 (3 semanas atrás)</p>
+                <p>• Solicitação de suporte TI (1 mês atrás)</p>
               </div>
             </div>
             
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-              <h4 className="text-sm font-medium text-charcoal mb-1">AI Root Cause Analysis</h4>
+              <h4 className="text-sm font-medium text-charcoal mb-1">Análise da Causa Raiz pela IA</h4>
               <p className="text-sm text-medium-gray">
-                Communication breakdown between student and department. Grade appeal process appears stalled.
+                Falha de comunicação entre estudante e departamento. Processo de recurso de nota parece travado.
               </p>
             </div>
           </div>
@@ -239,7 +239,7 @@ export const ComplaintManagement: React.FC = () => {
 
         {/* Actions Panel */}
         <div className="flex-1 flex flex-col p-4">
-          <h3 className="font-semibold text-charcoal mb-4">AI Actions</h3>
+          <h3 className="font-semibold text-charcoal mb-4">Ações da IA</h3>
           
           {/* Tabs */}
           <div className="flex space-x-1 mb-4 bg-gray-100 rounded-lg p-1">
@@ -251,7 +251,7 @@ export const ComplaintManagement: React.FC = () => {
                   : 'text-medium-gray hover:text-charcoal'
               }`}
             >
-              Student Response
+              Resposta ao Estudante
             </button>
             <button
               onClick={() => setActiveTab('internal')}
@@ -261,7 +261,7 @@ export const ComplaintManagement: React.FC = () => {
                   : 'text-medium-gray hover:text-charcoal'
               }`}
             >
-              Internal Ticket
+              Ticket Interno
             </button>
           </div>
 
@@ -269,11 +269,11 @@ export const ComplaintManagement: React.FC = () => {
           <div className="flex space-x-2 mb-4">
             <button className="flex-1 btn-secondary text-xs py-1.5">
               <RefreshCw className="w-3 h-3 mr-1" />
-              Regenerate
+              Regenerar
             </button>
             <button className="flex-1 btn-secondary text-xs py-1.5">
               <FileText className="w-3 h-3 mr-1" />
-              Summarize
+              Resumir
             </button>
           </div>
 
@@ -281,39 +281,39 @@ export const ComplaintManagement: React.FC = () => {
           <div className="flex-1 flex flex-col">
             <textarea
               className="flex-1 p-3 border border-gray-300 rounded-lg text-sm resize-none focus:outline-none focus:ring-2 focus:ring-reclame-blue focus:border-transparent"
-              placeholder={activeTab === 'student' ? 'AI-generated response to student...' : 'AI-generated internal ticket...'}
+              placeholder={activeTab === 'student' ? 'Resposta gerada pela IA ao estudante...' : 'Ticket interno gerado pela IA...'}
               value={activeTab === 'student' 
-                ? `Dear Marcus,
+                ? `Caro Marcus,
 
-Thank you for bringing this matter to our attention. I understand your frustration regarding the delayed response to your grade appeal for CHEM 301.
+Obrigado por trazer este assunto à nossa atenção. Entendo sua frustração com a resposta atrasada ao seu recurso de nota para QUIM 301.
 
-I have immediately contacted the Chemistry Department and Professor Martinez to expedite your case. You should expect an initial response within 48 hours.
+Contactei imediatamente o Departamento de Química e o Professor Martinez para acelerar seu caso. Você deve esperar uma resposta inicial em 48 horas.
 
-In the meantime, I want to assure you that your appeal is being taken seriously and we will work to resolve this matter promptly while following proper academic procedures.
+Enquanto isso, quero assegurar que seu recurso está sendo levado a sério e trabalharemos para resolver este assunto prontamente seguindo os procedimentos acadêmicos adequados.
 
-I will personally monitor this case and keep you updated on progress.
+Vou pessoalmente monitorar este caso e mantê-lo atualizado sobre o progresso.
 
-Best regards,
+Atenciosamente,
 Sarah Johnson
-Student Ombudsman`
-                : `URGENT: Grade Appeal Escalation Required
+Ouvidora Estudantil`
+                : `URGENTE: Escalação de Recurso de Nota Necessária
 
-Case: #2847
-Student: Marcus Chen (ID: 12345678)
-Course: CHEM 301
+Caso: #2847
+Estudante: Marcus Chen (ID: 12345678)
+Matéria: QUIM 301
 
-Issue: Student submitted grade appeal 3 weeks ago with no acknowledgment from department. Student has consulted legal counsel and threatened escalation.
+Problema: Estudante enviou recurso de nota há 3 semanas sem reconhecimento do departamento. Estudante consultou advogado e ameaçou escalação.
 
-Required Actions:
-1. Immediate contact with Prof. Martinez and Dept. Chair
-2. Fast-track review of grade appeal documentation
-3. Provide timeline for resolution to student within 48 hours
+Ações Necessárias:
+1. Contato imediato com Prof. Martinez e Chefe do Departamento
+2. Revisão acelerada da documentação do recurso de nota
+3. Fornecer cronograma para resolução ao estudante em 48 horas
 
-Risk Level: HIGH - Legal threat indicated
-Priority: URGENT
+Nível de Risco: ALTO - Ameaça legal indicada
+Prioridade: URGENTE
 
-Assigned to: Chemistry Department Chair
-CC: Academic Affairs, Legal Counsel`
+Atribuído a: Chefe do Departamento de Química
+CC: Assuntos Acadêmicos, Assessoria Jurídica`
               }
               readOnly
             />
@@ -322,7 +322,7 @@ CC: Academic Affairs, Legal Counsel`
           {/* Send Button */}
           <button className="btn-primary mt-4 flex items-center justify-center">
             <Send className="w-4 h-4 mr-2" />
-            Send Reply
+            Enviar Resposta
           </button>
         </div>
       </div>

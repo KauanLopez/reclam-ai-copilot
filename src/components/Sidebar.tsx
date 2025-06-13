@@ -3,21 +3,21 @@ import React from 'react';
 import { Home, Inbox, CheckCircle, BarChart3, Settings, User, Bell, Clock, AlertTriangle } from 'lucide-react';
 
 const navigationItems = [
-  { icon: Home, label: 'Dashboard', href: '/', active: true },
+  { icon: Home, label: 'Painel', href: '/', active: true },
   { 
     icon: Inbox, 
-    label: 'Inbox', 
+    label: 'Caixa de Entrada', 
     href: '/inbox',
     badge: 12,
     subItems: [
-      { label: 'New', count: 8 },
-      { label: 'In Progress', count: 3 },
-      { label: 'Awaiting Reply', count: 1 }
+      { label: 'Novos', count: 8 },
+      { label: 'Em Andamento', count: 3 },
+      { label: 'Aguardando Resposta', count: 1 }
     ]
   },
-  { icon: CheckCircle, label: 'Resolved', href: '/resolved' },
-  { icon: BarChart3, label: 'Reports', href: '/reports' },
-  { icon: Settings, label: 'Settings', href: '/settings' }
+  { icon: CheckCircle, label: 'Resolvidos', href: '/resolved' },
+  { icon: BarChart3, label: 'Relatórios', href: '/reports' },
+  { icon: Settings, label: 'Configurações', href: '/settings' }
 ];
 
 export const Sidebar: React.FC = () => {
@@ -31,7 +31,7 @@ export const Sidebar: React.FC = () => {
           </div>
           <div>
             <h1 className="text-lg font-semibold text-charcoal">Reclame AI</h1>
-            <p className="text-xs text-medium-gray">Complaint Management</p>
+            <p className="text-xs text-medium-gray">Gestão de Reclamações</p>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ export const Sidebar: React.FC = () => {
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium text-charcoal">Sarah Johnson</p>
-            <p className="text-xs text-medium-gray">Student Ombudsman</p>
+            <p className="text-xs text-medium-gray">Ouvidora Estudantil</p>
           </div>
         </div>
       </div>

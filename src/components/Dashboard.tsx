@@ -6,18 +6,18 @@ const criticalCases = [
   {
     id: '#2847',
     student: 'Marcus Chen',
-    issue: 'Grade dispute escalation - threatening legal action',
+    issue: 'Escalação de disputa de nota - ameaçando ação legal',
     riskLevel: 'high',
-    timeAgo: '2 hours ago',
-    tags: ['Grade', 'Legal Threat']
+    timeAgo: 'há 2 horas',
+    tags: ['Nota', 'Ameaça Legal']
   },
   {
     id: '#2851',
     student: 'Emma Rodriguez',
-    issue: 'Financial aid suspension causing hardship',
+    issue: 'Suspensão de auxílio financeiro causando dificuldades',
     riskLevel: 'high',
-    timeAgo: '4 hours ago',
-    tags: ['Financial Aid', 'Hardship']
+    timeAgo: 'há 4 horas',
+    tags: ['Auxílio Financeiro', 'Dificuldade']
   }
 ];
 
@@ -25,35 +25,35 @@ const queueItems = [
   {
     id: '#2852',
     student: 'Alex Thompson',
-    issue: 'Internship coordinator unresponsive',
+    issue: 'Coordenador de estágio não responde',
     priority: 'medium',
-    timeAgo: '1 hour ago'
+    timeAgo: 'há 1 hora'
   },
   {
     id: '#2853',
     student: 'Maria Santos',
-    issue: 'Course registration system error',
+    issue: 'Erro no sistema de matrícula',
     priority: 'low',
-    timeAgo: '3 hours ago'
+    timeAgo: 'há 3 horas'
   },
   {
     id: '#2854',
     student: 'David Kim',
-    issue: 'Housing assignment concerns',
+    issue: 'Preocupações com alocação de moradia',
     priority: 'medium',
-    timeAgo: '5 hours ago'
+    timeAgo: 'há 5 horas'
   }
 ];
 
 const reminders = [
   {
     case: '#2840',
-    message: 'Awaiting reply from Registrar\'s Office for 3 days',
+    message: 'Aguardando resposta da Secretaria há 3 dias',
     urgent: true
   },
   {
     case: '#2845',
-    message: 'Follow-up with student scheduled for tomorrow',
+    message: 'Acompanhamento com estudante agendado para amanhã',
     urgent: false
   }
 ];
@@ -64,8 +64,8 @@ export const Dashboard: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-charcoal">Good morning, Sarah</h1>
-          <p className="text-medium-gray mt-1">Here's what needs your attention today</p>
+          <h1 className="text-2xl font-semibold text-charcoal">Bom dia, Sarah</h1>
+          <p className="text-medium-gray mt-1">Aqui está o que precisa da sua atenção hoje</p>
         </div>
         <div className="flex items-center space-x-3">
           <button className="relative p-2 text-medium-gray hover:text-charcoal transition-colors duration-200">
@@ -80,7 +80,7 @@ export const Dashboard: React.FC = () => {
         <div className="bg-white rounded-xl p-5 card-shadow hover:card-shadow-hover transition-shadow duration-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-medium-gray text-sm font-medium">New Complaints</p>
+              <p className="text-medium-gray text-sm font-medium">Novas Reclamações</p>
               <p className="text-2xl font-semibold text-charcoal mt-1">8</p>
             </div>
             <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -90,14 +90,14 @@ export const Dashboard: React.FC = () => {
           <div className="flex items-center mt-3 text-sm">
             <TrendingUp className="w-4 h-4 text-success-green mr-1" />
             <span className="text-success-green font-medium">+12%</span>
-            <span className="text-medium-gray ml-1">from yesterday</span>
+            <span className="text-medium-gray ml-1">desde ontem</span>
           </div>
         </div>
 
         <div className="bg-white rounded-xl p-5 card-shadow hover:card-shadow-hover transition-shadow duration-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-medium-gray text-sm font-medium">Resolved Today</p>
+              <p className="text-medium-gray text-sm font-medium">Resolvidas Hoje</p>
               <p className="text-2xl font-semibold text-charcoal mt-1">5</p>
             </div>
             <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
@@ -105,31 +105,31 @@ export const Dashboard: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center mt-3 text-sm">
-            <span className="text-success-green font-medium">On track</span>
-            <span className="text-medium-gray ml-1">for daily goal</span>
+            <span className="text-success-green font-medium">No caminho</span>
+            <span className="text-medium-gray ml-1">para meta diária</span>
           </div>
         </div>
 
         <div className="bg-white rounded-xl p-5 card-shadow hover:card-shadow-hover transition-shadow duration-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-medium-gray text-sm font-medium">Avg Response Time</p>
-              <p className="text-2xl font-semibold text-charcoal mt-1">2.4h</p>
+              <p className="text-medium-gray text-sm font-medium">Tempo Médio Resposta</p>
+              <p className="text-2xl font-semibold text-charcoal mt-1">2,4h</p>
             </div>
             <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
               <Clock className="w-5 h-5 text-warning-yellow" />
             </div>
           </div>
           <div className="flex items-center mt-3 text-sm">
-            <span className="text-success-green font-medium">-0.3h</span>
-            <span className="text-medium-gray ml-1">from last week</span>
+            <span className="text-success-green font-medium">-0,3h</span>
+            <span className="text-medium-gray ml-1">da semana passada</span>
           </div>
         </div>
 
         <div className="bg-white rounded-xl p-5 card-shadow hover:card-shadow-hover transition-shadow duration-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-medium-gray text-sm font-medium">Active Cases</p>
+              <p className="text-medium-gray text-sm font-medium">Casos Ativos</p>
               <p className="text-2xl font-semibold text-charcoal mt-1">12</p>
             </div>
             <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -137,7 +137,7 @@ export const Dashboard: React.FC = () => {
             </div>
           </div>
           <div className="flex items-center mt-3 text-sm">
-            <span className="text-medium-gray">3 high priority</span>
+            <span className="text-medium-gray">3 alta prioridade</span>
           </div>
         </div>
       </div>
@@ -149,9 +149,9 @@ export const Dashboard: React.FC = () => {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-charcoal flex items-center">
               <AlertTriangle className="w-5 h-5 text-error-red mr-2" />
-              Critical Cases
+              Casos Críticos
             </h2>
-            <span className="text-sm text-medium-gray">2 urgent</span>
+            <span className="text-sm text-medium-gray">2 urgentes</span>
           </div>
           
           <div className="space-y-4">
@@ -160,7 +160,7 @@ export const Dashboard: React.FC = () => {
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center space-x-2">
                     <span className="text-sm font-medium text-charcoal">{case_.id}</span>
-                    <span className="tag tag-high-risk">HIGH RISK</span>
+                    <span className="tag tag-high-risk">ALTO RISCO</span>
                   </div>
                   <span className="text-xs text-medium-gray">{case_.timeAgo}</span>
                 </div>
@@ -179,8 +179,8 @@ export const Dashboard: React.FC = () => {
         {/* My Queue */}
         <div className="bg-white rounded-xl p-6 card-shadow hover:card-shadow-hover transition-shadow duration-200">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-charcoal">My Queue</h2>
-            <span className="text-sm text-medium-gray">3 cases</span>
+            <h2 className="text-lg font-semibold text-charcoal">Minha Fila</h2>
+            <span className="text-sm text-medium-gray">3 casos</span>
           </div>
           
           <div className="space-y-3">
@@ -196,7 +196,7 @@ export const Dashboard: React.FC = () => {
                   item.priority === 'high' ? 'tag-high-risk' : 
                   item.priority === 'medium' ? 'tag-medium-risk' : 'tag-low-risk'
                 }`}>
-                  {item.priority.toUpperCase()}
+                  {item.priority === 'high' ? 'ALTA' : item.priority === 'medium' ? 'MÉDIA' : 'BAIXA'}
                 </span>
               </div>
             ))}
@@ -208,9 +208,9 @@ export const Dashboard: React.FC = () => {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-charcoal flex items-center">
               <Clock className="w-5 h-5 text-warning-yellow mr-2" />
-              Follow-up Reminders
+              Lembretes de Acompanhamento
             </h2>
-            <span className="text-sm text-medium-gray">2 pending</span>
+            <span className="text-sm text-medium-gray">2 pendentes</span>
           </div>
           
           <div className="space-y-3">
@@ -223,7 +223,7 @@ export const Dashboard: React.FC = () => {
                 <div className="flex items-start justify-between mb-2">
                   <span className="text-sm font-medium text-charcoal">{reminder.case}</span>
                   {reminder.urgent && (
-                    <span className="tag tag-medium-risk">URGENT</span>
+                    <span className="tag tag-medium-risk">URGENTE</span>
                   )}
                 </div>
                 <p className="text-sm text-medium-gray">{reminder.message}</p>

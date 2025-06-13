@@ -21,7 +21,7 @@ const Index = () => {
                   : 'text-medium-gray hover:text-charcoal hover:bg-gray-100'
               }`}
             >
-              Dashboard
+              Painel
             </button>
             <button
               onClick={() => setCurrentView('complaints')}
@@ -31,7 +31,7 @@ const Index = () => {
                   : 'text-medium-gray hover:text-charcoal hover:bg-gray-100'
               }`}
             >
-              Complaint Management
+              Gestão de Reclamações
             </button>
           </div>
         </div>
