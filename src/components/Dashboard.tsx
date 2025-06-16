@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { AlertTriangle, Clock, CheckCircle, TrendingUp, Bell, Users, FileText } from 'lucide-react';
+import { AlertTriangle, Clock, CheckCircle, TrendingUp, Bell, Users, FileText, Upload } from 'lucide-react';
 
 const criticalCases = [
   {
@@ -67,7 +66,16 @@ export const Dashboard: React.FC = () => {
           <h1 className="text-2xl font-semibold text-charcoal">Bom dia, Sarah</h1>
           <p className="text-medium-gray mt-1">Aqui está o que precisa da sua atenção hoje</p>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-4">
+          <a
+            href="/importador.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary flex items-center"
+          >
+            <Upload className="w-4 h-4 mr-2" />
+            Importar Dados
+          </a>
           <button className="relative p-2 text-medium-gray hover:text-charcoal transition-colors duration-200">
             <Bell className="w-5 h-5" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-error-red rounded-full"></span>
